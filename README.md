@@ -4,16 +4,16 @@
 
 ## Installation
 
-    1. Install vagrant via `[official guide](https://www.vagrantup.com/docs/installation/)`
+1. Install vagrant via [official guide](https://www.vagrantup.com/docs/installation/)
     
-    2. Install `virtual box`. (Use as vagrant provider.)
+2. Install `virtual box`. (Use as vagrant provider.)
 
-    3. Launch boxes
+3. Launch boxes
 
-       ```bash
-           vagrant up
-       ```
+```bash
+    $ vagrant up
+```
 
 ## What's Inside
 
-    See the `[Vagrantfile](./Vagrantfile)`
+See the [Vagrantfile](./Vagrantfile)
