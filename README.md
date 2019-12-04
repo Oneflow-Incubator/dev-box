@@ -12,6 +12,10 @@
 
 ```bash
     $ vagrant up
+    ...
+
+    $ rke up
+    ...
 ```
 
 ## What's Inside
