@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # echo flags from cli
+  config.vm.provision "shell",
+    inline: "echo build base box for oneflow dev-box"
+
+  config.vm.box = "centos/7"
+  config.vm.box_version = "1905.1"
+
+  config.vm.provision "shell", inline: <<-SHELL
+    yum update -y
+    yum install -y yum-utils device-mapper-persistent-data lvm2
+    yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    yum update -y
+    yum install -y docker-ce docker-ce-cli containerd.io
+    systemctl start docker
+    systemctl enable docker
+    usermod -aG docker vagrant
+    curl -L https://github.com/rancher/rke/releases/download/v1.0.0/rke_linux-amd64 -o /usr/local/bin/rke
+    chmod +x /usr/local/bin/rke
+  SHELL
+end
