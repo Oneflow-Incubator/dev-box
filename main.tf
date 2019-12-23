@@ -59,11 +59,17 @@ resource "local_file" "kube-conf" {
     content = rke_cluster.kubernetes-cluster.kube_config_yaml
 }
 
+# load kubernetes cluster config from rke
+provider "kubernetes" {
+  host     = kubernetes-cluster.cluster.api_server_url
+  username = kubernetes-cluster.cluster.kube_admin_user
 
-/**
-1. 配置远程集群 ssh 连接信息
-2. 配置 repo 信息, 安装 docker
-3. 下载安装 rke
-4. 调用 rke provider 安装 kubernetes 集群
-5. 安装平台项目及相关组件
-**/
+  client_certificate     = kubernetes-cluster.cluster.client_cert
+  client_key             = kubernetes-cluster.cluster.client_key
+  cluster_ca_certificate = kubernetes-cluster.cluster.ca_crt
+}
+
+#  kubernetes resources installation
+resource "type" "name" {
+  
+}

@@ -4,3 +4,4 @@ kube_config_cluster.yml
 src/package.box
 .terraform/
 terraform.tfstate*
+kube_config.yaml

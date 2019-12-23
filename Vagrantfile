@@ -17,8 +17,8 @@ Vagrant.configure("2") do |config|
 
       # hardware config
       node.vm.provider "virtualbox" do |vb|
-        vb.memory = 2048
-        vb.cpus = 2
+        vb.memory = 1024
+        vb.cpus = 1
       end
 
       node.vm.network "forwarded_port", guest: 22, host: "220#{i}"
